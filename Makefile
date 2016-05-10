@@ -23,11 +23,15 @@
 # DAMAGES.
 #
 
-DEBUG =
-#DEBUG = -g
+# C compiler and linker - adjust to fit
+CC = gcc
+LN = gcc
 
 # path to header files for libxml2 - adjust to fit
 XMLHEADERPATH= /usr/include/libxml2
+
+DEBUG =
+#DEBUG = -g
 
 CCFLAGS = -Wall -O3 ${DEBUG}
 LNFLAGS = -Wall -O3 ${DEBUG}
@@ -43,21 +47,21 @@ distclean:	clean
 		/bin/rm -rf *~
 
 monoseq:	${FILES}
-		gcc ${LNFLAGS} -o monoseq ${FILES} -lm -lxml2
+		${LN} ${LNFLAGS} -o monoseq ${FILES} -lm -lxml2
 
 monoseq.o:	monoseq.c msdesc.h mshmm.h mssequence.h
-		gcc -c ${CCFLAGS} monoseq.c
+		${CC} -c ${CCFLAGS} monoseq.c
 
 msdesc.o:	msdesc.c msdesc.h mssequence.h
-		gcc -c ${CCFLAGS} -I ${XMLHEADERPATH} msdesc.c
+		${CC} -c ${CCFLAGS} -I ${XMLHEADERPATH} msdesc.c
 
 mshmm.o:	mshmm.c mshmm.h msdesc.h
-		gcc -c ${CCFLAGS} mshmm.c
+		${CC} -c ${CCFLAGS} mshmm.c
 
 mscall.o:	mscall.c mscall.h
-		gcc -c ${CCFLAGS} mscall.c
+		${CC} -c ${CCFLAGS} mscall.c
 
 mssequence.o:	mssequence.c mssequence.h
-		gcc -c ${CCFLAGS} mssequence.c
+		${CC} -c ${CCFLAGS} mssequence.c
 
 
