@@ -267,7 +267,7 @@ int main(int argc, char **argv)
   
   /* output results */
   printf("# coverage max_homopol wt_homopol variant_frequency counts raw_frequencies called_frequencies\n");
-  printf("%4d %3d %3d ",coverage,maxlen,pDescription->RepeatLength);
+  printf("%1d %1d %1d ",coverage,maxlen,pDescription->RepeatLength);
   if (pDescription->RepeatLength==k0) {
     printf("%5.3f",f);
   } else if (pDescription->RepeatLength==k1) {
